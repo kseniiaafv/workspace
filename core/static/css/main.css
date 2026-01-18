@@ -1,0 +1,164 @@
+/* =========================
+   Базовые настройки
+   ========================= */
+
+:root {
+  --bg: #fbf6ea;            /* фон страницы (как в макете) */
+  --panel: #f1d29a;         /* бежевые плашки */
+  --text: #141414;          /* основной текст */
+  --muted: #5a5146;         /* вторичный текст */
+  --line: #d9c9ab;          /* разделители/рамки */
+  --btn: #f0cf97;           /* кнопки-пилюли */
+  --btn-hover: #e6c17f;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Alegreya Sans", Arial, Helvetica, sans-serif;
+  line-height: auto;
+  font-size: 16px;
+}
+
+/* Контейнер под desktop */
+.container {
+  width: 1200px;
+  max-width: calc(100% - 64px);
+  margin: 0 auto;
+}
+
+/* =========================
+   Компоненты
+   ========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: filter .15s ease, transform .05s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--btn);
+}
+
+.btn--secondary {
+  background: transparent;
+  border: 2px solid var(--btn);
+}
+
+.btn:hover {
+  filter: brightness(0.97);
+}
+
+.btn__icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Пилюли меню */
+.pill-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--btn);
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  width: 170px;
+  height: 42px;
+  transition: background .15s ease, transform .05s ease;
+}
+
+.pill-link:hover {
+  background: var(--btn-hover);
+}
+
+.pill-link:active {
+  transform: translateY(1px);
+}
+
+/* =========================
+   Header
+   ========================= */
+
+.header {
+  padding: 18px 0;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+/* Бренд */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.brand__logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid var(--btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff7e6;
+}
+
+.brand__logo-text {
+  font-size: 28px;
+}
+
+.brand__name {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* Навигация пилюлями */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* Кнопки справа */
+.header__actions {
+  display: flex;
+  gap: 14px;
+}
+
+/* Чтобы было видно начало страницы при якорях */
+:target {
+  scroll-margin-top: 16px;
+}
