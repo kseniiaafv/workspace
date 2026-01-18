@@ -118,6 +118,7 @@ section {
   display: flex;
   justify-content: center; 
   align-items: center; 
+  flex-direction: column;
 }
 
 
@@ -129,11 +130,16 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   border-radius: 20px;
+=======
+  text-align: center;
+>>>>>>> 15793262081000b35ca9e6d6a2d2a1ac7a69bf96
 }
 
 .img_and_text_hero {
-  
+  display: flex;
+
 }
 
 /* Бренд */
