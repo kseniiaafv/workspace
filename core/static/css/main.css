@@ -114,12 +114,18 @@ body {
   gap: 18px;
 }
 
+section {
+  margin: auto;
+}
+
 .header2 {
   width: 1120px;
   height: 112px;
   font-size: 40px;
   background: var(--panel);
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .img_and_text_hero {
