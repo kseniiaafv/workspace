@@ -126,10 +126,12 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .img_and_text_hero {
-  
+  display: flex;
+
 }
 
 /* Бренд */
