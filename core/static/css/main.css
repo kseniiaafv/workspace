@@ -118,7 +118,6 @@ section {
   display: flex;
   justify-content: center; 
   align-items: center; 
-  
 }
 
 
@@ -130,6 +129,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 20px;
 }
 
 .img_and_text_hero {
