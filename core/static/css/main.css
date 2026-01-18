@@ -114,6 +114,14 @@ body {
   gap: 18px;
 }
 
+.header2 {
+  width: 1120px;
+  height: 112px;
+  font-size: 40px;
+  background: var(--panel);
+  
+}
+
 /* Бренд */
 .brand {
   display: flex;
