@@ -1,0 +1,65 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sections/contacts.css' %}">
+{% endblock %}
+
+<section class="section contacts" id="contacts">
+  <div class="container contacts__inner">
+
+    <div class="contacts__title-bar">
+      <h2 class="contacts__title-text">КОНТАКТЫ</h2>
+    </div>
+
+    <div class="contacts__grid">
+
+      <div class="contacts__info">
+
+        <div class="contacts__item">
+          <span class="contacts__label">Адрес:</span>
+          <p class="contacts__value">г. Москва, ул. Лесная, д. 5, оф. 302</p>
+        </div>
+
+        <div class="contacts__item">
+          <span class="contacts__label">Телефон:</span>
+          <a href="tel:+79990000000" class="contacts__link">+7 (999) 000-00-00</a>
+        </div>
+
+        <div class="contacts__group">
+          <div class="contacts__item">
+            <span class="contacts__label">Telegram:</span>
+            <a href="https://t.me/kanisdog" target="_blank" class="contacts__link contacts__link--tg">@kanisdog</a>
+          </div>
+          <div class="contacts__item">
+            <span class="contacts__label">Email:</span>
+            <a href="mailto:info@kanisdog.ru" class="contacts__link">info@kanisdog.ru</a>
+          </div>
+        </div>
+
+        <div class="contacts__item">
+          <span class="contacts__label">График работы:</span>
+          <p class="contacts__value">с 10:00 до 20:00 (ежедневно)</p>
+        </div>
+
+      </div>
+
+      <div class="contacts__map-wrapper">
+        <span class="visually-hidden">Карта проезда</span>
+
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3A759e2d8e4cfb71f3638f891c613676671c5af7f442fddd2ce71d6daa3d0ba778&amp;source=constructor"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          class="contacts__map-frame"
+          allowfullscreen="true">
+        </iframe>
+
+        <a href="https://yandex.ru/maps" target="_blank" class="contacts__btn">
+          как добраться
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

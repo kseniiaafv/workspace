@@ -1,0 +1,62 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sections/formats.css' %}">
+{% endblock %}
+
+<section class="section formats" id="formats">
+  <div class="container formats__inner">
+
+    <div class="formats__title">
+      <h2 class="formats__title-text">ФОРМАТЫ ЗАНЯТИЙ</h2>
+    </div>
+
+    <div class="formats__grid">
+
+      <article class="formats__card">
+        <div class="formats__media">
+          <img src="{% static 'img/format-ind.png' %}" alt="Ребенок и собака на индивидуальном занятии" class="formats__img" loading="lazy">
+        </div>
+
+        <div class="formats__info">
+          <h3 class="formats__card-title">Индивидуальное занятие</h3>
+          <ul class="formats__list">
+            <li>Цена:</li>
+            <li>Длительность:</li>
+            <li>Кому подходит:</li>
+          </ul>
+        </div>
+
+        <div class="formats__action">
+          <a href="#signup" class="formats__btn">
+            <span class="formats__icon" aria-hidden="true">📝</span>
+            записаться
+          </a>
+        </div>
+      </article>
+
+      <article class="formats__card">
+        <div class="formats__media">
+          <img src="{% static 'img/format-group.png' %}" alt="Дети и собака на групповом занятии" class="formats__img" loading="lazy">
+        </div>
+
+        <div class="formats__info">
+          <h3 class="formats__card-title">Групповое занятие</h3>
+          <ul class="formats__list">
+            <li>Цена:</li>
+            <li>Длительность:</li>
+            <li>Кому подходит:</li>
+          </ul>
+        </div>
+
+        <div class="formats__action">
+          <a href="#signup" class="formats__btn">
+            <span class="formats__icon" aria-hidden="true">📝</span>
+            записаться
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>

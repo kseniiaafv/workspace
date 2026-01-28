@@ -1,0 +1,213 @@
+/* Contacts Section Styles */
+
+.contacts.section {
+  padding: 0;
+  background: var(--header-bg, #FFFCF0);
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.contacts__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Заголовок --- */
+.contacts__title-bar {
+  width: 1160px;
+  max-width: 100%;
+  height: 112px;
+  background: var(--accent, #F2CD98);
+  border-radius: 20px;
+  margin: 0 auto 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contacts__title-text {
+  margin: 0;
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* --- Сетка контента --- */
+.contacts__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  max-width: 1160px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  /* 👇 ФИКС: Прижимаем колонки к верху, чтобы текст и карта начинались на одной линии */
+  align-items: start;
+}
+
+/* Левая колонка (Инфо) */
+.contacts__info {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  /* 👇 ФИКС: Убрали justify-content: center; */
+}
+
+.contacts__item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contacts__group {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+/* Лейблы */
+.contacts__label {
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 32px;
+  color: #000;
+  line-height: 1;
+}
+
+/* Значения */
+.contacts__value,
+.contacts__link {
+  margin: 0;
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.3;
+  color: #1E1E1C;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contacts__link {
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+}
+
+.contacts__link:hover {
+  color: #663F28;
+  border-bottom-color: #663F28;
+}
+
+.contacts__link--tg {
+  color: #2AABEE;
+}
+.contacts__link--tg:hover {
+  color: #1E88C0;
+  border-bottom-color: #1E88C0;
+}
+
+/* --- Правая колонка (Карта) --- */
+.contacts__map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: #E5E5E5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  /* 👇 ФИКС: Небольшой отступ сверху, если нужно идеально подогнать под высоту текста заголовка "Адрес" */
+  /* margin-top: 5px; */
+}
+
+.contacts__map-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Кнопка */
+.contacts__btn {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+
+  width: 200px;
+  height: 56px;
+  background: var(--accent, #F2CD98);
+  border-radius: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 18px;
+  color: #663F28;
+  text-decoration: none;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s, filter 0.2s;
+  z-index: 10;
+}
+
+.contacts__btn:hover {
+  filter: brightness(0.95);
+  transform: translateY(-2px);
+}
+
+.contacts__btn:active {
+  transform: translateY(0);
+}
+
+/* --- Адаптив --- */
+@media (max-width: 1024px) {
+  .contacts__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contacts__info {
+    order: 1;
+  }
+
+  .contacts__map-wrapper {
+    order: 2;
+    height: 350px;
+  }
+
+  .contacts__label {
+    font-size: 24px;
+  }
+
+  .contacts__value,
+  .contacts__link {
+    font-size: 22px;
+  }
+
+  .contacts__btn {
+    position: static;
+    margin: 20px auto 0;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .contacts__map-wrapper {
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+    height: auto;
+  }
+
+  .contacts__map-frame {
+    border-radius: 20px;
+    height: 300px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+}

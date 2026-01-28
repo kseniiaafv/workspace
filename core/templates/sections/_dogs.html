@@ -1,0 +1,58 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sections/dogs.css' %}">
+{% endblock %}
+
+<section class="section dogs" id="dogs">
+  <div class="container dogs__inner">
+    
+    <div class="dogs__title">
+      <h2 class="dogs__title-text">НАШИ СОБАКИ-ТЕРАПЕВТЫ</h2>
+    </div>
+
+    <div class="dogs__grid">
+      {% for dog in dogs %}
+      <article class="dogs__card">
+        
+        <div class="dogs__photo-wrapper">
+          {% if dog.photo %}
+            <img src="{{ dog.photo.url }}" alt="{{ dog.name }}" class="dogs__img" loading="lazy">
+          {% else %}
+            <div class="dogs__placeholder"></div>
+          {% endif %}
+        </div>
+
+        <ul class="dogs__info">
+          <li class="dogs__item">
+            <span class="dogs__label">Имя:</span> {{ dog.name }}
+          </li>
+          <li class="dogs__item">
+            <span class="dogs__label">Порода:</span> {{ dog.breed }}
+          </li>
+          <li class="dogs__item">
+            <span class="dogs__label">Возраст:</span> {{ dog.age }}
+          </li>
+          <li class="dogs__item">
+            <span class="dogs__label">Характер:</span> {{ dog.character }}
+          </li>
+          <li class="dogs__item">
+            <span class="dogs__label">Что любит:</span> {{ dog.likes }}
+          </li>
+          {% if dog.specialist %}
+          <li class="dogs__item">
+            <span class="dogs__label">Специалист:</span> {{ dog.specialist.name }}
+          </li>
+          {% endif %}
+        </ul>
+
+        <a href="#signup" class="dogs__btn">познакомиться</a>
+
+      </article>
+      {% empty %}
+        <p>Собачки пока отдыхают и скоро появятся здесь.</p>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,202 @@
+/* Specialists Section Styles */
+
+.specialists.section {
+  padding: 0;
+  background: var(--header-bg, #FFFCF0);
+  margin-top: 100px;
+}
+
+.specialists__inner {
+  padding-bottom: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Заголовок --- */
+.specialists__title {
+  width: 1110px;
+  max-width: 100%;
+  height: 112px;
+  background: var(--accent, #F2CD98);
+  border-radius: 20px;
+  margin: 0 auto 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.specialists__title-text {
+  margin: 0;
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* --- Сетка --- */
+.specialists__grid {
+  display: grid;
+  /* 3 колонки */
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1110px; /* Ограничиваем ширину */
+  margin: 0 auto;    /* Центрируем */
+
+  column-gap: 40px;
+  row-gap: 60px;
+
+  /* Выравнивание по центру ячейки не нужно, так как карточка должна растягиваться */
+  /* justify-items: center; <--- Убрали это */
+}
+
+/* --- Карточка --- */
+.specialists__card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 350px; /* Чтобы не были слишком широкими */
+  height: 100%;
+  margin: 0 auto;
+
+  /* Для красивого ховера добавляем отступы и скругление */
+  padding: 20px;
+  border-radius: 20px;
+  box-sizing: border-box; /* Чтобы padding не ломал ширину */
+
+  /* Плавная анимация тени и трансформации */
+  transition: all 0.3s ease;
+}
+
+/* 👇 ЭФФЕКТ ПРИ НАВЕДЕНИИ */
+.specialists__card:hover {
+  background-color: #fff; /* Белая подложка (опционально, смотрится свежо) */
+  box-shadow: 0 14px 28px rgba(0,0,0,0.06), 0 10px 10px rgba(0,0,0,0.04); /* Мягкая тень */
+  transform: translateY(-5px); /* Легкий взлет вверх */
+}
+
+/* Фотография */
+.specialists__photo-wrapper {
+  width: 100%; /* Подстраиваемся под ширину карточки (с учетом padding) */
+  max-width: 283px; /* Ограничиваем оригинальным размером */
+  aspect-ratio: 283 / 321; /* Сохраняем пропорции */
+  background: rgba(102, 63, 40, 0.1);
+  margin-bottom: 30px;
+  align-self: center; /* Центрируем фото внутри карточки */
+  border-radius: 10px; /* Чуть скруглим фото, чтобы сочеталось с ховером */
+  overflow: hidden;
+}
+
+.specialists__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.specialists__placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #A9968A;
+}
+
+/* Список параметров */
+.specialists__info {
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+
+  flex-grow: 1;
+
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.4;
+  color: #000;
+}
+
+.specialists__item {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.specialists__item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+.specialists__label {
+  font-weight: 700;
+}
+
+/* Кнопка */
+.specialists__btn {
+  width: 170px;
+  height: 42px;
+  background: var(--accent, #F2CD98);
+  border-radius: 60px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1E1E1C;
+  text-decoration: none;
+
+  transition: filter 0.2s, transform 0.1s;
+
+  /* Кнопка выравнивается по левому краю или центру */
+  align-self: flex-start;
+
+  /* Чтобы при ховере на карточку кнопка не "дергалась", можно добавить ей отдельный ховер */
+}
+
+.specialists__btn:hover {
+  filter: brightness(0.95);
+}
+
+.specialists__btn:active {
+  transform: translateY(1px);
+}
+
+/* --- Адаптив --- */
+@media (max-width: 1200px) {
+  .specialists__grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px; /* Безопасные отступы по краям экрана */
+  }
+
+  .specialists__title {
+    width: auto;
+    margin: 0 20px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .specialists__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* На мобильном убираем "взлет" карточки, оставляем только тень или вообще убираем */
+  .specialists__card:hover {
+     transform: none;
+  }
+
+  .specialists__card {
+     padding: 0; /* На мобилках экономим место */
+  }
+
+  .specialists__info {
+    font-size: 22px;
+  }
+}

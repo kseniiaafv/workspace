@@ -1,4 +1,106 @@
 {% load static %}
-<section class="quiz">
-    <h2 class="header2">За одну минуту подберем формат</h2>
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sections/quiz.css' %}">
+{% endblock %}
+
+<section class="section quiz" id="quiz">
+  <div class="container quiz__inner">
+    <div class="quiz__title">
+      <h2 class="quiz__title-text">ЗА ОДНУ МИНУТУ ПОДБЕРЕМ ФОРМАТ</h2>
+    </div>
+
+    <form class="quiz__form" action="" method="post" autocomplete="off">
+      {% csrf_token %}
+      <!-- Макетная форма. Логика обработки будет добавлена позже (view/JS). -->
+
+      <!-- Вы учитесь в школе? -->
+      <fieldset class="quiz__group quiz__group--school">
+        <legend class="quiz__legend">Вы учитесь в школе?</legend>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="is_school" value="yes">
+          <span class="quiz__opt-text">да</span>
+        </label>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="is_school" value="no">
+          <span class="quiz__opt-text">нет</span>
+        </label>
+      </fieldset>
+
+      <!-- Если да, то в какой? -->
+      <div class="quiz__field quiz__field--grade">
+        <div class="quiz__label">Если да, то в какой?</div>
+        <input class="quiz__input" type="text" name="grade" placeholder="" aria-label="Если да, то в какой?">
+      </div>
+
+      <!-- Занимаетесь ли каким-либо видом спорта? -->
+      <fieldset class="quiz__group quiz__group--sport">
+        <legend class="quiz__legend">Занимаетесь ли каким-либо видом спорта?</legend>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="sport" value="yes">
+          <span class="quiz__opt-text">да</span>
+        </label>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="sport" value="no">
+          <span class="quiz__opt-text">нет</span>
+        </label>
+      </fieldset>
+
+      <!-- Формат -->
+      <fieldset class="quiz__group quiz__group--format">
+        <legend class="quiz__legend">Формат</legend>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="format" value="individual">
+          <span class="quiz__opt-text">индивидуальный</span>
+        </label>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="format" value="group">
+          <span class="quiz__opt-text">групповой</span>
+        </label>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="format" value="unknown">
+          <span class="quiz__opt-text">не решено</span>
+        </label>
+      </fieldset>
+
+      <!-- Оставались ли вы на второй год? -->
+      <fieldset class="quiz__group quiz__group--repeat">
+        <legend class="quiz__legend">Оставались ли вы на второй год?</legend>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="repeat" value="yes">
+          <span class="quiz__opt-text">да</span>
+        </label>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="repeat" value="no">
+          <span class="quiz__opt-text">нет</span>
+        </label>
+      </fieldset>
+
+      <!-- Есть ли друзья? -->
+      <fieldset class="quiz__group quiz__group--friends">
+        <legend class="quiz__legend">Есть ли друзья?</legend>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="friends" value="yes">
+          <span class="quiz__opt-text">да</span>
+        </label>
+
+        <label class="quiz__opt">
+          <input class="quiz__radio" type="radio" name="friends" value="no">
+          <span class="quiz__opt-text">нет</span>
+        </label>
+      </fieldset>
+
+      <button class="quiz__submit" type="submit">получить рекомендацию</button>
+    </form>
+  </div>
 </section>

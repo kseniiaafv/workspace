@@ -1,0 +1,30 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sections/faq.css' %}">
+{% endblock %}
+
+<section class="section faq" id="question">
+  <div class="container faq__inner">
+
+    <div class="faq__title-bar">
+      <h2 class="faq__title-text">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
+    </div>
+
+    <ul class="faq__list">
+      <li class="faq__item">
+        <strong>Может ли собака укусить?</strong> Нет, собаки проходят отбор и специальное обучение и тестирование, а потом получают сертификат.
+      </li>
+      <li class="faq__item">
+        <strong>Присутствуют ли хозяева собак на занятии?</strong> Нет, только канистерапевты.
+      </li>
+      <li class="faq__item">
+        <strong>Сколько занятий необходимо посетить?</strong> Кол-во занятий индивидуально. Определяется после бесплатного очного занятия с специалистом.
+      </li>
+      <li class="faq__item">
+        <strong>Можно ли проводить занятия онлайн?</strong> Нет, только очно.
+      </li>
+    </ul>
+
+  </div>
+</section>

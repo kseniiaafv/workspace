@@ -1,0 +1,257 @@
+/* Signup Section Styles */
+
+.signup.section {
+  padding: 0;
+  background: var(--header-bg, #FFFCF0);
+  margin-top: 100px;
+}
+
+.signup__inner {
+  padding-bottom: 80px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 80px;
+}
+
+/* --- Левая колонка --- */
+.signup__content {
+  width: 100%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Заголовок */
+.signup__title {
+  margin: 0 0 30px;
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  color: #1E1E1C;
+  text-transform: uppercase;
+}
+
+/* --- Стили формы --- */
+.signup__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup__field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px; /* Отступ до блока согласия */
+}
+
+/* Строка поля ввода */
+.signup__row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+/* Названия полей (Имя, Возраст...) */
+.signup__label {
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 24px;
+  color: #000;
+  white-space: nowrap;
+  position: relative;
+  padding-left: 15px; /* Место под буллит */
+}
+
+/* Буллет перед названием */
+.signup__label::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+/* Поле ввода (Input) */
+.signup__input {
+  flex-grow: 1;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #D6D0C4;
+  border-radius: 0;
+  padding: 0 10px 5px;
+
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 400;
+  font-size: 24px;
+  color: #1E1E1C;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.signup__input:focus {
+  border-bottom-color: #000;
+}
+
+.signup__input::placeholder {
+  color: #A09B8D;
+  opacity: 0.6;
+}
+
+/* --- Чекбокс согласия (ИСПРАВЛЕНО) --- */
+.signup__consent {
+  position: relative;
+  padding-left: 15px; /* Такой же отступ, как у лейблов выше */
+  margin-bottom: 40px; /* Отступ до кнопок */
+}
+
+/* Буллет для всего блока согласия, чтобы сохранить ритм */
+.signup__consent::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 2px; /* Чуть корректируем высоту, чтобы ровно стоял */
+  font-weight: 700;
+  font-size: 24px;
+  color: #000;
+}
+
+.signup__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  /* Убираем padding-left отсюда, так как он теперь на родителе */
+}
+
+/* Скрываем стандартный чекбокс */
+.signup__checkbox-label input {
+  display: none;
+}
+
+/* Кастомный квадратик */
+.signup__checkbox-custom {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #000;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #fff; /* Белый фон для контраста */
+}
+
+.signup__checkbox-label input:checked + .signup__checkbox-custom::after {
+  content: "✓";
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+.signup__consent-text {
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 24px;
+  color: #000;
+  /* Убрали лишний буллит отсюда */
+}
+
+/* --- Кнопки (ИСПРАВЛЕНО) --- */
+.signup__actions {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.signup__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  background: var(--accent, #F2CD98);
+  border-radius: 60px;
+  color: #1E1E1C;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.1s;
+
+  /* Делаем общую фиксированную высоту, чтобы они смотрелись парой */
+  height: 80px;
+  box-sizing: border-box; /* Чтобы padding не увеличивал высоту */
+  padding: 10px;
+}
+
+.signup__btn:hover {
+  filter: brightness(0.95);
+}
+
+.signup__btn:active {
+  transform: translateY(1px);
+}
+
+/* Кнопка владельцев (текст поменьше, две строки) */
+.signup__btn--owners {
+  width: 192px;
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 26px;
+}
+
+/* Кнопка отправки (текст крупнее) */
+.signup__btn--submit {
+  width: 192px;
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1;
+}
+
+/* --- Правая колонка --- */
+.signup__media {
+  width: 370px;
+  height: 370px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.signup__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 1024px) {
+  .signup__inner {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .signup__content {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .signup__row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .signup__input {
+    width: 100%;
+  }
+
+  .signup__media {
+    margin-top: 0;
+  }
+
+  .signup__actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

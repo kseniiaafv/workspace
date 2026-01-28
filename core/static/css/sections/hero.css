@@ -1,0 +1,211 @@
+/* Hero — фикс: убираем padding .section + подгоняем размеры под референс */
+
+.hero.section {
+  padding: 0;                 /* КРИТИЧНО: иначе absolute "едет" */
+  background: var(--header-bg);
+}
+
+.hero__inner {
+  position: relative;
+  min-height: 677px;          /* было height: 677px */
+  padding-bottom: 60px;       /* запас под CTA/факты, чтобы не прижималось */
+}
+
+/* Заголовок-плашка */
+.hero__title {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 1120px;
+  height: 148px;
+  background: var(--accent);
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__title-text {
+  margin: 0;
+  width: 1012px;
+  height: 148px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-family: var(--font-figma, var(--font));
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000;
+}
+
+/* Картинка 360x360 */
+.hero__media {
+  position: absolute;
+  left: 40px;
+  top: 178px;
+  width: 360px;
+  height: 360px;
+  overflow: hidden;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Текст справа */
+.hero__text {
+  position: absolute;
+  left: 420px;
+  top: 178px;
+  width: 740px;
+  height: 324px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero__lead {
+  margin: 0;
+  font-family: var(--font-figma, var(--font));
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  color: #000;
+}
+
+/* Буллеты слева снизу */
+.hero__facts {
+  position: absolute;
+  left: 40px;
+  top: 563px;
+  width: 550px;
+  height: 114px;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  font-family: var(--font-figma, var(--font));
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+  color: #000;
+}
+
+.hero__facts li {
+  margin: 0;
+}
+
+.hero__facts li::before {
+  content: "· ";
+  font-weight: 900;
+}
+
+/* Кнопки */
+.hero__cta {
+  position: absolute;
+  left: 610px;
+  top: 612px;
+  display: flex;
+  gap: 20px;
+}
+
+.hero__btn {
+  width: 170px;
+  height: 56px;
+  border-radius: 60px;
+  background: var(--accent);
+  color: var(--hero-btn-text, #663f28);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-family: var(--font-figma, var(--font));
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration: none;
+
+  transition: filter 160ms ease, transform 160ms ease;
+}
+
+.hero__btn:hover {
+  filter: brightness(0.97);
+}
+
+.hero__btn:active {
+  transform: translateY(1px);
+}
+
+.hero__btn--small {
+  height: 54px;
+  border-radius: 70px;
+}
+
+/* Узкие экраны — деградация */
+@media (max-width: 1200px) {
+  .hero.section {
+    padding: 18px 0 28px;
+  }
+
+  .hero__inner {
+    min-height: 0;
+  }
+
+  .hero__title,
+  .hero__media,
+  .hero__text,
+  .hero__facts,
+  .hero__cta {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+
+  .hero__title {
+    margin: 0 0 18px;
+    padding: 14px;
+  }
+
+  .hero__title-text {
+    width: auto;
+    height: auto;
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .hero__media {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto 16px;
+    height: 320px;
+  }
+
+  .hero__lead {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .hero__facts {
+    font-size: 20px;
+    line-height: 26px;
+    margin: 0 0 16px;
+  }
+
+  .hero__cta {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

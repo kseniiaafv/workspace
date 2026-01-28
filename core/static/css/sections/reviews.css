@@ -1,0 +1,250 @@
+/* Reviews Section Styles */
+
+.reviews.section {
+  padding: 0;
+  background: var(--header-bg, #FFFCF0);
+  margin-top: 100px;
+}
+
+.reviews__inner {
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Заголовок секции --- */
+.reviews__title-bar {
+  width: 1110px;
+  max-width: 100%;
+  height: 112px;
+  background: var(--accent, #F2CD98);
+  border-radius: 20px;
+  margin: 0 auto 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviews__title-text {
+  margin: 0;
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* --- Сетка --- */
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 45px;
+}
+
+/* Колонка */
+.reviews__column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Заголовок колонки */
+.reviews__col-title {
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.2;
+  color: #000;
+  margin: 0 0 24px;
+  text-align: center; /* Центрируем заголовок над карточкой, так опрятнее */
+}
+
+/* --- КАРТОЧКА (UX UI FIX) --- */
+.reviews__card {
+  background: var(--accent, #F2CD98);
+  border-radius: 24px; /* Чуть больше скругление */
+  padding: 24px;       /* Больше воздуха внутри */
+  display: flex;
+  flex-direction: column;
+  height: 440px;       /* Увеличил высоту для комфорта */
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* Едва заметная тень для глубины */
+}
+
+/* Шапка карточки */
+.reviews__header {
+  display: flex;
+  justify-content: space-between; /* Имя слева, Звезды справа */
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+/* Левая часть шапки: Данные */
+.reviews__info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Расстояние между группой Имени и группой Возраста */
+  flex: 1; /* Занимает всё доступное место */
+  padding-right: 10px; /* Чтобы не прилипало к звездам */
+}
+
+.reviews__data-group {
+  display: flex;
+  flex-direction: column; /* Вертикальный стек: Лейбл над Значением */
+  align-items: flex-start;
+}
+
+/* Лейбл (маленький, серый, uppercase) */
+.reviews__label {
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #5C4A3D; /* Темно-коричневый, приглушенный */
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+/* Значение (крупное, черное) */
+.reviews__value {
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.1;
+}
+
+.reviews__value--name {
+  font-size: 24px; /* Имя чуть крупнее */
+  font-weight: 700;
+}
+
+/* Правая часть шапки: Рейтинг */
+.reviews__rating {
+  flex-shrink: 0;
+}
+
+.reviews__stars {
+  font-size: 24px; /* Аккуратный размер звезд */
+  color: #000;
+  letter-spacing: 2px;
+  display: flex;
+}
+
+.star {
+  /* Если нужно сделать звезды золотыми, раскомментируйте ниже: */
+  /* color: #E58E00; */
+}
+
+/* --- Тело отзыва --- */
+.reviews__body {
+  background: var(--header-bg, #FFFCF0);
+  border-radius: 16px;
+  padding: 20px 24px; /* Больше отступ слева/справа для текста */
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative; /* Для позиционирования декоративных элементов, если нужно */
+}
+
+.reviews__scroll-area {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 12px; /* Отступ от текста до скроллбара */
+
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5; /* Увеличили интерлиньяж для читаемости */
+  color: #1E1E1C;
+}
+
+/* Кастомный скроллбар (тонкий и незаметный) */
+.reviews__scroll-area::-webkit-scrollbar {
+  width: 4px;
+}
+
+.reviews__scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reviews__scroll-area::-webkit-scrollbar-thumb {
+  background-color: rgba(102, 63, 40, 0.2); /* Полупрозрачный коричневый */
+  border-radius: 4px;
+}
+
+/* Firefox */
+.reviews__scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(102, 63, 40, 0.2) transparent;
+}
+
+/* --- Кнопка --- */
+.reviews__action {
+  display: flex;
+  justify-content: center;
+}
+
+.reviews__btn {
+  width: 240px;
+  height: 60px;
+  background: var(--accent, #F2CD98);
+  border-radius: 60px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #663F28;
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(242, 205, 152, 0.4);
+}
+
+.reviews__btn:hover {
+  filter: brightness(0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(242, 205, 152, 0.6);
+}
+
+.reviews__btn:active {
+  transform: translateY(1px);
+}
+
+/* --- Адаптив --- */
+@media (max-width: 1024px) {
+  .reviews__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px; /* Ограничиваем ширину одной колонки */
+  }
+
+  .reviews__card {
+    height: auto;
+    min-height: 350px;
+  }
+
+  .reviews__body {
+    min-height: 200px;
+  }
+
+  .reviews__title-bar {
+    width: auto;
+    margin: 0 20px 40px;
+  }
+
+  .reviews__title-text {
+    font-size: 28px;
+  }
+}

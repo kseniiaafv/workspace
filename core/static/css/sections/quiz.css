@@ -1,0 +1,249 @@
+/* Quiz — Section Styles */
+
+.quiz.section {
+  padding: 0;
+  margin-top: 100px;
+  /* Цвет фона согласно выгрузке из Figma */
+  background: var(--header-bg, #FFFCF0); 
+}
+
+.quiz__inner {
+  /* Отступ снизу, чтобы кнопка не прилипала к краю секции */
+  padding-bottom: 80px;
+  position: relative;
+}
+
+/* --- Заголовок --- */
+.quiz__title {
+  width: 1120px; /* Figma: 1120px */
+  max-width: 100%;
+  height: 148px; /* Figma высота плашки */
+  margin: 0 auto 40px; /* Отступ до формы */
+  background: var(--accent);
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz__title-text {
+  margin: 0;
+  font-family: var(--font-figma, var(--font));
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* --- Форма и Сетка --- */
+
+.quiz__form {
+  margin: 0;
+  padding: 0 40px; /* Отступ слева ~40px как в макете */
+  box-sizing: border-box;
+
+  /* Включаем Grid */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Две равные колонки */
+  column-gap: 84px;               /* Расстояние между колонками */
+  row-gap: 24px;                  /* Расстояние между строками вопросов */
+  align-items: start;             /* Прижимаем контент к верху ячеек */
+}
+
+/* Сброс стандартных стилей fieldset */
+.quiz__form fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+/* --- Типографика внутри формы --- */
+.quiz__legend,
+.quiz__label {
+  display: block;
+  font-family: var(--font-figma, var(--font));
+  font-weight: 500;
+  font-size: 28px; /* Чуть меньше чем 32, чтобы влезало аккуратно */
+  line-height: 34px;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+/* Радио-кнопки (опции) */
+.quiz__opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 8px; /* Отступ между радио-кнопками */
+}
+
+.quiz__opt-text {
+  font-family: var(--font-figma, var(--font));
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  color: #000;
+}
+
+/* Кастомный радио-индикатор */
+.quiz__radio {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff; /* Белый фон кружка */
+  border: 1px solid #000;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.quiz__radio:checked::after {
+  content: "";
+  position: absolute;
+  inset: 4px; /* Размер точки внутри */
+  border-radius: 50%;
+  background: #000;
+}
+
+/* Поле ввода (Input) */
+.quiz__input {
+  width: 100%;
+  max-width: 320px; /* Ограничиваем ширину инпута */
+  height: 56px;
+  border-radius: 60px;
+  border: 1px solid #C7C1A8;
+  background: #fff;
+  padding: 0 24px;
+  box-sizing: border-box;
+
+  font-family: var(--font-figma, var(--font));
+  font-weight: 400;
+  font-size: 24px;
+  color: #000;
+  outline: none;
+}
+
+.quiz__input:focus {
+  border-color: var(--accent);
+}
+
+/* --- РАССТАНОВКА ПО СЕТКЕ (КЛЮЧЕВОЙ МОМЕНТ) --- */
+
+/* Левая колонка */
+.quiz__group--school {
+  grid-column: 1;
+  grid-row: 1; /* Ряд 1 */
+}
+
+.quiz__field--grade {
+  grid-column: 1;
+  grid-row: 2; /* Ряд 2 */
+  margin-top: -10px; /* Чуть подтянуть к вопросу про школу */
+}
+
+.quiz__group--sport {
+  grid-column: 1;
+  grid-row: 3; /* Ряд 3 */
+}
+
+.quiz__group--format {
+  grid-column: 1;
+  grid-row: 4; /* Ряд 4 */
+}
+
+/* Правая колонка - принудительно поднимаем наверх */
+.quiz__group--repeat {
+  grid-column: 2;
+  grid-row: 1; /* Встает напротив школы */
+}
+
+.quiz__group--friends {
+  grid-column: 2;
+  /* Встает в 3-й ряд (напротив Спорта), пропуская ряд с инпутом класса,
+     что создает красивое пустое пространство, как на макете */
+  grid-row: 3; 
+}
+
+/* Кнопка */
+.quiz__submit {
+  grid-column: 1 / -1; /* На всю ширину (или по центру) */
+  grid-row: 5;         /* Самый низ */
+  
+  width: 240px;
+  height: 56px;
+  margin: 40px auto 0; /* Центрирование */
+  
+  border-radius: 60px;
+  border: 0;
+  background: var(--accent);
+  color: var(--hero-btn-text, #663f28);
+  
+  font-family: var(--font-figma, var(--font));
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  transition: filter 0.2s, transform 0.1s;
+}
+
+.quiz__submit:hover {
+  filter: brightness(0.95);
+}
+
+.quiz__submit:active {
+  transform: translateY(1px);
+}
+
+/* --- АДАПТИВНОСТЬ (Мобильные) --- */
+@media (max-width: 1200px) {
+  .quiz__title {
+    width: auto;
+    height: auto;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .quiz__title-text {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .quiz__form {
+    grid-template-columns: 1fr; /* Одна колонка */
+    row-gap: 30px;
+    padding: 0;
+  }
+
+  /* Сбрасываем жесткую привязку к строкам для мобильных, чтобы шли по порядку HTML */
+  .quiz__group--school,
+  .quiz__field--grade,
+  .quiz__group--sport,
+  .quiz__group--format,
+  .quiz__group--repeat,
+  .quiz__group--friends,
+  .quiz__submit {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  
+  /* Можно поменять визуальный порядок через order, если нужно */
+  .quiz__group--repeat { order: 5; }
+  .quiz__group--friends { order: 6; }
+  .quiz__submit { order: 10; width: 100%; }
+}

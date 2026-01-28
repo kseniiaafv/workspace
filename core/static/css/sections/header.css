@@ -1,0 +1,141 @@
+/* Header 1:1 по Figma absolute (контейнер 1200×223) */
+
+.header {
+  background: var(--header-bg);
+}
+
+.header__inner {
+  position: relative;
+  height: 223px;
+  /* контейнер уже ограничен .container до 1200 */
+}
+
+/* LOGO (Frame 13) */
+.header__brand {
+  position: absolute;
+  left: 40px;
+  top: 28px;
+}
+
+.header__logo {
+  box-sizing: border-box;
+  width: 170px;
+  height: 167px;
+  border: 3px solid var(--accent);
+  border-radius: 145px;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.header__logo-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+}
+
+/* ПИЛЮЛИ 170×42 */
+.header__pill {
+  width: 170px;
+  height: 42px;
+  border-radius: 60px;
+  background: var(--accent);
+  color: var(--ink);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration: none;
+
+  transition: filter 160ms ease, transform 160ms ease;
+}
+
+.header__pill:hover {
+  filter: brightness(0.97);
+}
+
+.header__pill:active {
+  transform: translateY(1px);
+}
+
+/* NAV — расставляем 6 кнопок по Figma координатам */
+.header__nav {
+  position: absolute;
+  left: 325px;
+  top: 67px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 170px);
+  grid-template-rows: repeat(2, 42px);
+  column-gap: 20px;  /* 515-325-170 = 20 */
+  row-gap: 15px;     /* 124-67-42 = 15 */
+}
+
+/* CTA — по Figma справа (x=895) */
+.header__cta {
+  position: absolute;
+  left: 895px;
+  top: 67px;
+
+  display: grid;
+  grid-template-rows: 42px 42px;
+  row-gap: 15px;
+}
+
+/* CTA визуально шире как на референсе */
+.header__pill--cta {
+  width: 300px; /* сделай 170px если нужен strict-export */
+  justify-content: flex-start;
+  padding-left: 22px;
+}
+
+.header__icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* На узких экранах absolute не работает красиво — делаем деградацию */
+@media (max-width: 1200px) {
+  .header__inner {
+    height: auto;
+    padding: 18px 0 22px;
+  }
+
+  .header__brand,
+  .header__nav,
+  .header__cta {
+    position: static;
+  }
+
+  .header__brand {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .header__nav {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 170px);
+    grid-template-rows: repeat(3, 42px);
+    gap: 14px 14px;
+    margin-bottom: 18px;
+  }
+
+  .header__cta {
+    display: grid;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .header__pill--cta {
+    width: 300px;
+  }
+}

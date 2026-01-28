@@ -1,0 +1,192 @@
+/* Help Section Styles */
+
+.help.section {
+  padding: 0;
+  /* Цвет фона из макета */
+  background: var(--header-bg, #FFFCF0);
+  /* Отступ сверху от предыдущей секции */
+  margin-top: 100px;
+}
+
+.help__inner {
+  padding-bottom: 80px;
+  /* Стек вертикальный для блоков */
+  display: flex;
+  flex-direction: column;
+  gap: 54px; /* Расстояние между блоками (746px start - 692px end) */
+}
+
+/* --- Общий блок (Заголовок + Контент) --- */
+.help__block {
+  position: relative;
+  width: 100%;
+}
+
+/* --- Заголовки --- */
+.help__title {
+  width: 1110px;
+  max-width: 100%;
+  height: 112px;
+  background: var(--accent, #F2CD98); /* #F2CD98 из фигмы */
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Отступ вниз до контента: 149px (start img) - 112px (height title) = 37px */
+  margin: 0 auto 37px;
+}
+
+.help__title-text {
+  margin: 0;
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* --- Сетка контента (Картинка слева | Текст справа) --- */
+.help__content {
+  display: flex;
+  /* Отступ слева 46px как в Figma */
+  padding-left: 46px;
+  align-items: flex-start;
+  gap: 22px; /* 611px (text x) - 589px (img end x) */
+}
+
+/* Картинка */
+.help__media {
+  width: 543px;
+  height: 543px;
+  flex-shrink: 0;
+  border-radius: 20px; /* Добавил скругление для красоты, уберите если не нужно */
+  overflow: hidden;
+  background-color: #e5e5e5; /* Плейсхолдер */
+}
+
+.help__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Правая часть (Список + Кнопка) */
+.help__info {
+  display: flex;
+  flex-direction: column;
+  /* Высота картинки 543px. Кнопка начинается на 645-149 = 496px от верха картинки.
+     Используем min-height или просто space-between, если хотим прижать кнопку.
+     Здесь используем margin-top у кнопки для точного позиционирования. */
+  height: 543px;
+}
+
+/* Список с лапками */
+.help__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 50px;
+  color: #000;
+}
+
+.help__list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.help__list li::before {
+  content: "🐾";
+  font-size: 24px; /* Чуть меньше текста, чтобы смотрелось аккуратно */
+  transform: translateY(-2px);
+}
+
+/* Кнопка */
+.help__btn {
+  /* Margin-top вычисляем, чтобы визуально кнопка была там же, где в макете.
+     В макете кнопка отстоит от верха контента на ~496px.
+     Список занимает свое место, остальное — margin-top: auto прижмет к низу блока. */
+  margin-top: auto;
+
+  width: 138px;
+  height: 47px;
+  border-radius: 60px;
+  background: var(--accent, #F2CD98);
+  color: #663F28;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-decoration: none;
+
+  transition: filter 0.2s, transform 0.1s;
+}
+
+.help__btn:hover {
+  filter: brightness(0.95);
+}
+
+.help__btn:active {
+  transform: translateY(1px);
+}
+
+/* --- Адаптив (до 1200px) --- */
+@media (max-width: 1200px) {
+  .help__title {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .help__title-text {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .help__content {
+    flex-direction: column;
+    padding-left: 0;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .help__media {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .help__info {
+    height: auto;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+  }
+
+  .help__list {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 30px;
+  }
+
+  .help__btn {
+    width: 200px;
+    height: 56px; /* Чуть больше палец на мобильном */
+  }
+}

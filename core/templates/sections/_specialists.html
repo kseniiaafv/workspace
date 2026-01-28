@@ -1,0 +1,50 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sections/specialists.css' %}">
+{% endblock %}
+
+<section class="section specialists" id="specialists">
+  <div class="container specialists__inner">
+
+    <div class="specialists__title">
+      <h2 class="specialists__title-text">СПЕЦИАЛИСТЫ</h2>
+    </div>
+
+    <div class="specialists__grid">
+      {% for person in specialists %}
+      <article class="specialists__card">
+
+        <div class="specialists__photo-wrapper">
+            {% if person.photo %}
+              <img src="{{ person.photo.url }}" alt="{{ person.name }}" class="specialists__img" loading="lazy">
+            {% else %}
+              <div class="specialists__placeholder"></div>
+            {% endif %}
+        </div>
+
+        <ul class="specialists__info">
+          <li class="specialists__item">
+            <span class="specialists__label">Имя:</span> {{ person.name }}
+          </li>
+          <li class="specialists__item">
+            <span class="specialists__label">Должность:</span> {{ person.role }}
+          </li>
+          <li class="specialists__item">
+            <span class="specialists__label">Опыт работы:</span> {{ person.experience }}
+          </li>
+          <li class="specialists__item">
+            <span class="specialists__label">Порода:</span> {{ person.breed }}
+          </li>
+        </ul>
+
+        <a href="#contact" class="specialists__btn">познакомиться</a>
+
+      </article>
+      {% empty %}
+        <p>Специалисты пока не добавлены.</p>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

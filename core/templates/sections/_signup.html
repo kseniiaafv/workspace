@@ -1,0 +1,68 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sections/signup.css' %}">
+{% endblock %}
+
+<section class="section signup" id="signup">
+  <div class="container signup__inner">
+
+    <div class="signup__content">
+      <h2 class="signup__title">ЗАПИСЬ:</h2>
+
+      <form class="signup__form" action="" method="post">
+        {% csrf_token %}
+
+        <div class="signup__field-group">
+          <div class="signup__row">
+            <label class="signup__label" for="child_name">Имя ребенка:</label>
+            <input class="signup__input" type="text" id="child_name" name="child_name" placeholder="Иван">
+          </div>
+
+          <div class="signup__row">
+            <label class="signup__label" for="child_age">Возраст ребенка:</label>
+            <input class="signup__input" type="text" id="child_age" name="child_age" placeholder="7 лет">
+          </div>
+
+          <div class="signup__row">
+            <label class="signup__label" for="child_gender">Пол ребенка:</label>
+            <input class="signup__input" type="text" id="child_gender" name="child_gender" placeholder="Мальчик">
+          </div>
+
+          <div class="signup__row">
+            <label class="signup__label" for="dog_breed">Порода собаки:</label>
+            <input class="signup__input" type="text" id="dog_breed" name="dog_breed" placeholder="Любая">
+          </div>
+
+          <div class="signup__row">
+            <label class="signup__label" for="contact">Телефон/Telegram:</label>
+            <input class="signup__input" type="text" id="contact" name="contact" placeholder="+7 999 000-00-00">
+          </div>
+        </div>
+
+        <div class="signup__consent">
+          <label class="signup__checkbox-label">
+            <input type="checkbox" name="consent" checked required>
+            <span class="signup__checkbox-custom"></span>
+            <span class="signup__consent-text">Согласие на обработку данных</span>
+          </label>
+        </div>
+
+        <div class="signup__actions">
+          <a href="#owners" class="signup__btn signup__btn--owners">
+            для владельцев<br>собак
+          </a>
+
+          <button type="submit" class="signup__btn signup__btn--submit">
+            записаться
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="signup__media">
+      <img src="{% static 'img/signup-puppy.png' %}" alt="Щенок" class="signup__img" loading="lazy">
+    </div>
+
+  </div>
+</section>

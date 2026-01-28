@@ -1,0 +1,59 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sections/help.css' %}">
+{% endblock %}
+
+<section class="section help" id="help">
+  <div class="container help__inner">
+
+    <div class="help__block">
+      <div class="help__title">
+        <h2 class="help__title-text">КАК ПОМОГАЕТ КАНИСТЕРАПИЯ</h2>
+      </div>
+
+      <div class="help__content">
+        <div class="help__media">
+          <img class="help__img" src="{% static 'img/help-dogs.png' %}" alt="Собаки-терапевты" loading="lazy">
+        </div>
+
+        <div class="help__info">
+          <ul class="help__list">
+            <li>Развитие речи</li>
+            <li>Снижение тревожности</li>
+            <li>Социализация</li>
+            <li>Моторика</li>
+            <li>Мотивация к учебе</li>
+            <li>Эмоциональная поддержка</li>
+          </ul>
+
+          <a class="help__btn" href="#details-how">подробнее</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="help__block">
+      <div class="help__title">
+        <h2 class="help__title-text">КОМУ ПОМОГАЕТ КАНИСТЕРАПИЯ</h2>
+      </div>
+
+      <div class="help__content">
+        <div class="help__media">
+          <img class="help__img" src="{% static 'img/help-people.png' %}" alt="Семья и специалист" loading="lazy">
+        </div>
+
+        <div class="help__info">
+          <ul class="help__list">
+            <li>Дети с ЗПР, ОВЗ</li>
+            <li>Логопеды</li>
+            <li>Психологи</li>
+            <li>Родители детей</li>
+          </ul>
+
+          <a class="help__btn" href="#details-who">подробнее</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

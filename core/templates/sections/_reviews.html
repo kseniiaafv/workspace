@@ -1,0 +1,134 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sections/reviews.css' %}">
+{% endblock %}
+
+<section class="section reviews" id="reviews">
+  <div class="container reviews__inner">
+
+    <div class="reviews__title-bar">
+      <h2 class="reviews__title-text">ОТЗЫВЫ И РЕЗУЛЬТАТЫ</h2>
+    </div>
+
+    <div class="reviews__grid">
+
+      <div class="reviews__column">
+        <h3 class="reviews__col-title">Отзывы родителей</h3>
+        <div class="reviews__card">
+          <div class="reviews__header">
+
+            <div class="reviews__info">
+              <div class="reviews__data-group">
+                <span class="reviews__label">Имя</span>
+                <span class="reviews__value reviews__value--name">{{ review_parent.name|default:"—" }}</span>
+              </div>
+              <div class="reviews__data-group">
+                <span class="reviews__label">Возраст ребенка</span>
+                <span class="reviews__value">{{ review_parent.age_info|default:"—" }}</span>
+              </div>
+            </div>
+
+            <div class="reviews__rating">
+               <div class="reviews__stars">
+                 {% if review_parent %}
+                   {% for i in "12345" %}
+                      <span class="star">{% if forloop.counter <= review_parent.rating %}★{% else %}☆{% endif %}</span>
+                   {% endfor %}
+                 {% else %}
+                   <span class="star">☆</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span>
+                 {% endif %}
+               </div>
+            </div>
+          </div>
+
+          <div class="reviews__body">
+            <div class="reviews__scroll-area">
+               <p>{{ review_parent.text|default:"Пока нет отзывов в этой категории." }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews__column">
+        <h3 class="reviews__col-title">Отзывы взрослых</h3>
+        <div class="reviews__card">
+          <div class="reviews__header">
+
+            <div class="reviews__info">
+              <div class="reviews__data-group">
+                <span class="reviews__label">Имя</span>
+                <span class="reviews__value reviews__value--name">{{ review_adult.name|default:"—" }}</span>
+              </div>
+              <div class="reviews__data-group">
+                <span class="reviews__label">Возраст</span>
+                <span class="reviews__value">{{ review_adult.age_info|default:"—" }}</span>
+              </div>
+            </div>
+
+            <div class="reviews__rating">
+               <div class="reviews__stars">
+                 {% if review_adult %}
+                   {% for i in "12345" %}
+                      <span class="star">{% if forloop.counter <= review_adult.rating %}★{% else %}☆{% endif %}</span>
+                   {% endfor %}
+                 {% else %}
+                   <span class="star">☆</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span>
+                 {% endif %}
+               </div>
+            </div>
+          </div>
+
+          <div class="reviews__body">
+            <div class="reviews__scroll-area">
+              <p>{{ review_adult.text|default:"Пока нет отзывов в этой категории." }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews__column">
+        <h3 class="reviews__col-title">Результаты</h3>
+        <div class="reviews__card">
+          <div class="reviews__header">
+
+            <div class="reviews__info">
+              <div class="reviews__data-group">
+                <span class="reviews__label">Имя</span>
+                <span class="reviews__value reviews__value--name">{{ review_result.name|default:"—" }}</span>
+              </div>
+              <div class="reviews__data-group">
+                <span class="reviews__label">Возраст ребенка</span>
+                <span class="reviews__value">{{ review_result.age_info|default:"—" }}</span>
+              </div>
+            </div>
+
+            <div class="reviews__rating">
+               <div class="reviews__stars">
+                 {% if review_result %}
+                   {% for i in "12345" %}
+                      <span class="star">{% if forloop.counter <= review_result.rating %}★{% else %}☆{% endif %}</span>
+                   {% endfor %}
+                 {% else %}
+                   <span class="star">☆</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span><span class="star">☆</span>
+                 {% endif %}
+               </div>
+            </div>
+          </div>
+
+          <div class="reviews__body">
+            <div class="reviews__scroll-area">
+              <p>{{ review_result.text|default:"Результатов пока нет." }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="reviews__action">
+      <a href="#modal-review" class="reviews__btn">оставить отзыв</a>
+    </div>
+
+  </div>
+</section>

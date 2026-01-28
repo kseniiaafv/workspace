@@ -1,0 +1,40 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/sections/lesson.css' %}">
+{% endblock %}
+
+<section class="section lesson" id="lesson">
+  <div class="container lesson__inner">
+    
+    <div class="lesson__title">
+      <h2 class="lesson__title-text">КАК ПРОХОДИТ ЗАНЯТИЕ?</h2>
+    </div>
+
+    <ul class="lesson__steps">
+      <li class="lesson__step">
+        <strong>1. Игры</strong> — помогают развивать моторику, координацию и социальные навыки.
+      </li>
+      <li class="lesson__step">
+        <strong>2. Уход</strong> — кормление, расчесывание способствует развитию ответственности и заботы.
+      </li>
+      <li class="lesson__step">
+        <strong>3. Общение</strong> — снижает уровень тревожности, поднимает настроение и самооценку.
+      </li>
+      <li class="lesson__step">
+        <strong>4. Прогулки на свежем воздухе</strong> — улучшают работу мозга.
+      </li>
+    </ul>
+
+    <div class="lesson__safety">
+      <h3 class="lesson__safety-head">Безопасность:</h3>
+      <ul class="lesson__safety-list">
+        <li>Не наносить собаке физическую боль!</li>
+        <li>Все занятия должны проходить строго при канистерапевте</li>
+        <li>Строгий отбор и подготовка собак</li>
+        <li>Соблюдение гигиены</li>
+      </ul>
+    </div>
+
+  </div>
+</section>

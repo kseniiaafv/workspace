@@ -1,0 +1,132 @@
+/* Lesson Section Styles */
+
+.lesson.section {
+  padding: 0;
+  background: var(--header-bg, #FFFCF0);
+  /* Отступ от предыдущей секции */
+  margin-top: 100px;
+}
+
+.lesson__inner {
+  padding-bottom: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Заголовок --- */
+.lesson__title {
+  width: 1110px;
+  max-width: 100%;
+  height: 112px;
+  background: var(--accent, #F2CD98);
+  border-radius: 20px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Центрируем блок заголовка внутри контейнера */
+  margin: 0 auto 24px; /* 24px отступ до текста (136px y_text - 112px height) */
+}
+
+.lesson__title-text {
+  margin: 0;
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* --- Список этапов (1, 2, 3, 4) --- */
+.lesson__steps {
+  margin: 0 0 40px; /* Отступ до блока безопасности */
+  padding: 0 40px;  /* Отступ слева ~37px по макету */
+  list-style: none;
+  
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 43px;
+  color: #000;
+}
+
+.lesson__step {
+  margin-bottom: 10px;
+}
+
+/* Жирный текст в начале пунктов (Игры, Уход...) */
+.lesson__step strong {
+  font-weight: 700;
+}
+
+/* --- Блок Безопасность --- */
+.lesson__safety {
+  padding: 0 40px; /* Выравнивание по левому краю с верхним текстом */
+}
+
+.lesson__safety-head {
+  margin: 0 0 15px; /* Отступ до списка */
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+  color: #000;
+}
+
+.lesson__safety-list {
+  margin: 0;
+  padding: 0;
+  list-style: none; /* Убираем стандартные буллеты, сделаем свои */
+  
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700; /* В фигме указан bold для этого списка */
+  font-size: 36px;
+  line-height: 43px;
+  color: #000;
+}
+
+.lesson__safety-list li {
+  position: relative;
+  padding-left: 25px; /* Место под буллет */
+  margin-bottom: 5px;
+}
+
+/* Кастомный буллет "•" */
+.lesson__safety-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* --- Адаптив (для телефонов и планшетов) --- */
+@media (max-width: 1200px) {
+  .lesson__title {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .lesson__title-text {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  /* Уменьшаем огромный шрифт 36px для мобильных */
+  .lesson__steps,
+  .lesson__safety-head,
+  .lesson__safety-list {
+    font-size: 20px;
+    line-height: 28px;
+    padding: 0; /* Убираем боковые отступы контейнера на мобилках */
+  }
+
+  .lesson__steps {
+    margin-bottom: 30px;
+  }
+}

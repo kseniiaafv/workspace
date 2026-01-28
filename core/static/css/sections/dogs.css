@@ -1,0 +1,190 @@
+/* Dogs Section Styles */
+
+.dogs.section {
+  padding: 0;
+  background: var(--header-bg, #FFFCF0);
+  margin-top: 100px;
+}
+
+.dogs__inner {
+  padding-bottom: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Заголовок --- */
+.dogs__title {
+  width: 1110px;
+  max-width: 100%;
+  height: 112px;
+  background: var(--accent, #F2CD98);
+  border-radius: 20px;
+  margin: 0 auto 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dogs__title-text {
+  margin: 0;
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* --- Сетка --- */
+.dogs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1110px;
+  margin: 0 auto;
+  column-gap: 40px;
+  row-gap: 60px;
+}
+
+/* --- Карточка --- */
+.dogs__card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 350px;
+  height: 100%; /* Растягиваем на всю высоту ряда */
+  margin: 0 auto;
+
+  /* Стили для ховера */
+  padding: 20px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.dogs__card:hover {
+  background-color: #fff;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.06), 0 10px 10px rgba(0,0,0,0.04);
+  transform: translateY(-5px);
+}
+
+/* Фото */
+.dogs__photo-wrapper {
+  width: 100%;
+  max-width: 283px;
+  aspect-ratio: 283 / 321;
+  /* Цвет фона под фото из макета */
+  background: rgba(102, 63, 40, 0.52);
+  margin-bottom: 30px;
+  align-self: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dogs__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dogs__placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #A9968A;
+}
+
+/* Список */
+.dogs__info {
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+  flex-grow: 1; /* Толкаем кнопку вниз */
+
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 400;
+  /* В макете 32px, но для длинного текста (характер) это очень много.
+     Ставим 24px для комфортного чтения, заголовки будут жирными */
+  font-size: 24px;
+  line-height: 1.3;
+  color: #000;
+}
+
+.dogs__item {
+  position: relative;
+  padding-left: 28px; /* Место под лапку */
+  margin-bottom: 12px;
+}
+
+/* Иконка лапки вместо буллета */
+.dogs__item::before {
+  content: "🐾";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 20px;
+}
+
+.dogs__label {
+  font-weight: 700;
+}
+
+/* Кнопка */
+.dogs__btn {
+  width: 170px;
+  height: 42px;
+  background: var(--accent, #F2CD98);
+  border-radius: 60px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-figma, 'Alegreya Sans', sans-serif);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1E1E1C;
+  text-decoration: none;
+
+  transition: filter 0.2s, transform 0.1s;
+  align-self: flex-start; /* Слева */
+
+  /* Чтобы визуально выровнять кнопку по центру карточки,
+     можно использовать margin: 0 auto;
+     но в макете она слева, поэтому оставляем flex-start или center */
+  align-self: center;
+}
+
+.dogs__btn:hover {
+  filter: brightness(0.95);
+}
+
+.dogs__btn:active {
+  transform: translateY(1px);
+}
+
+/* --- Адаптив --- */
+@media (max-width: 1200px) {
+  .dogs__grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+  }
+
+  .dogs__title {
+    width: auto;
+    margin: 0 20px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dogs__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dogs__card:hover {
+     transform: none;
+  }
+}

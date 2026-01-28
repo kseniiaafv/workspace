@@ -1,28 +1,38 @@
 {% load static %}
-<header class="header">
-  <div class="container header__inner">
 
-    <!-- Лого -->
-    <a class="brand" href="#top" aria-label="На главную">
-      <div class="brand__logo">
-        <!-- Пока заглушка. Потом можно поставить картинку:
-             <img src="{% static 'core/img/logo/logo.png' %}" alt="KANISDOG">
-        -->
-        <span class="brand__logo-text">🐾</span>
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/sections/header.css' %}">
+{% endblock %}
+
+<header class="header" id="top">
+  <div class="container header__inner">
+    <a class="header__brand" href="#top" aria-label="На главную">
+      <div class="header__logo">
+        <img class="header__logo-img" src="{% static 'img/logo.png' %}" alt="KANISDOG" loading="lazy">
       </div>
-      <div class="brand__name">KANISDOG</div>
+      <span class="visually-hidden">KANISDOG</span>
     </a>
 
-    <!-- Навигация -->
-    <nav class="nav" aria-label="Навигация по странице">
-      <a class="pill-link" href="#how">как это работает?</a>
-      <a class="pill-link" href="#formats">занятия</a>
-      <a class="pill-link" href="#specialists">специалисты</a>
-      <a class="pill-link" href="#dogs">собаки</a>
-      <a class="pill-link" href="#reviews">отзывы</a>
-      <a class="pill-link" href="#contacts">контакты</a>
-      <a class="pill-link" href="#"><span class="btn__icon">📝</span>записаться</a>
-      <a class="pill-link" href="#"><span class="btn__icon">💬</span>задать вопрос</a>
+    <nav class="header__nav" aria-label="Навигация по странице">
+      <a class="header__pill" href="#how">как это работает?</a>
+      <a class="header__pill" href="#specialists">специалисты</a>
+      <a class="header__pill" href="#reviews">отзывы</a>
+
+      <a class="header__pill" href="#formats">занятия</a>
+      <a class="header__pill" href="#dogs">собаки</a>
+      <a class="header__pill" href="#contacts">контакты</a>
     </nav>
+
+    <div class="header__cta">
+      <a class="header__pill header__pill--cta" href="#signup">
+        <span class="header__icon" aria-hidden="true">📝</span>
+        записаться
+      </a>
+
+      <a class="header__pill header__pill--cta" href="#question">
+        <span class="header__icon" aria-hidden="true">💬</span>
+        задать вопрос
+      </a>
+    </div>
   </div>
 </header>
